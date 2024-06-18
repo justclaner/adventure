@@ -4,17 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wizard Adventure</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       background-color: gray;
+      padding-left: 25%;
+      padding-right: 25%;
     }
-    p#intro {
-      text-align:center;
+
+    .fade-in {
+      animation:fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    #choice1 {
+      display: block;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  
-  <p id="intro">You have been in this village your entire life...</p>
+  <br><br><br><br><br>
+
+  <p id="dialogue1" class="fade-in">You wake up from a deep sleep. You don’t quite remember who you are and where you came from. Try as you might, 
+    you soon give up recalling your past and stand up. All you know is that your head really hurts...</p>
+  <div class="choices">
+    <button id="choice1" class="fade-in" onclick="choice1()">Inspect yourself</button> 
+  </div>
+  <p id="dialogue2" class="hidden fade-in">You are a middle-aged wizard wearing tattered robes and worn-out leather shoes. 
+    Many of the cuts and scratches over your arms come to your attention as you look over yourself. You don’t have anything in your hands or pockets. It seems as if you were involved in something…
+  </p>
+
+  <script>
+        var hidden = document.getElementsByClassName("hidden");
+        for (i = 0; i < hidden.length; i++) {
+          hidden[i].style.animationPlayState = "paused";
+        }
+    function choice1() {
+      document.getElementById("choice1").style.display = "none";
+      hidden[0].style.display = "block";
+      hidden[0].style.animationPlayState = "running";
+    }
+
+    function choice2() {
+
+    }
+  </script>
 </body>
 </html>
